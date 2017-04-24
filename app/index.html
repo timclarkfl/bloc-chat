@@ -4,11 +4,19 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Bloc Chat</title>
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
-    <ui-view></ui-view>
+     	<nav class="navbar"> <!-- vertical nav bar -->
+			<div class="links-container">
+				<h1><a ui-sref="home">Bloc Chat</a></h1>
+				<ui-view></ui-view>
+			</div>
+		
+
+		</nav>
 
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -32,6 +40,8 @@
     </script>
 
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/RoomCtrl.js"></script>
+    <script src="/scripts/services/Room.js"></script>
 
 </body>
 
