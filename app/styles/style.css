@@ -12,7 +12,7 @@ body {
 
 .column.one-fifth{
     position : relative;
-    background-color: grey;
+    background-color: red;
     width : 20vw;
     height: 100vh;
 
