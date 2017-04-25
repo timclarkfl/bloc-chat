@@ -1,7 +1,10 @@
-(function(){
-	function RoomCtrl($scope, Room){
-		$scope.chatRooms = Room.all;
-	}
+(function() {
+    function RoomCtrl(Room, $scope) {
+        this.rooms = Room.all;
+        this.addRoom = function(){
+            Room.addRoom({foo: "bar"});
+        };
+    }
 
 	angular
 		.module("blocChat")
