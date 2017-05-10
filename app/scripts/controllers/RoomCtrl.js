@@ -1,8 +1,8 @@
 (function() {
-    function RoomCtrl(Room, $scope) {
+    function RoomCtrl($scope, Room) {
         this.rooms = Room.all;
         this.addRoom = function(){
-            Room.addRoom({foo: "bar"});
+            Room.addRoom({name: "bar"});
         };
     }
 
