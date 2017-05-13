@@ -1,20 +1,26 @@
-(function() {
-    function config($stateProvider, $locationProvider) {
-        $locationProvider
-            .html5Mode({
-                enabled: true,
-                requireBase: false
-            });
+(function(){
+	function config($stateProvider, $locationProvider){
+		$locationProvider
+			.html5Mode({
+				enabled: true,
+				requireBase: false
+			});
+			
+		$stateProvider
+			.state('chatroom', {
+				url: '/',
+				controller: 'ChatroomCtrl as chatroom',
+				templateUrl: '../templates/chatroom.html'
+			})
 
-            $stateProvider
-                    .state('home', {
-     				             url: '/',
-								 controller: 'RoomCtrl as room',
-     				             templateUrl: '/templates/room.html'
-     		                });
+			.state('modal', {
+				url: '/',
+				controller: 'ModalCtrl as modal',
+				templateUrl: '../templates/modal.html'
+			});
+	}
 
-        }
-    angular
-        .module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap'])
-        .config(config);
+	angular
+		.module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap'])
+		.config(config);
 })();
