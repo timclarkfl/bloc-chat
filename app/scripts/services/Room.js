@@ -1,31 +1,20 @@
-(function() {
-	function Room($firebaseArray, $uibModal) {
-		var ref = firebase.database().ref().child('rooms');
-		var rooms = $firebaseArray(ref);
-		var messageRef = firebase.database().ref().child('messages');
+(function () {
+    function Room($firebaseArray) {
+        var Room = {};
 
-		//Create new chatroom by updating $firebaseArray
+        var ref = firebase.database().ref().child('rooms');/* global firebase */
+        var rooms = $firebaseArray(ref);
 
-		var createChatRoom = function(room) {
-			rooms.$add(room);
-		};
+        Room.all = rooms;
 
-		//Get messages from current room based on roomId
+        Room.addRoom = function (roomName) {
+            rooms.$add(roomName);
+        };
 
-		var getMessages = function(roomId){
-			var currentRoomMessages = messageRef.orderByChild("roomId").equalTo(roomId);
-			return $firebaseArray(currentRoomMessages);
-		};
+        return Room;
+    }
 
-		
-		return {
-			all: rooms,
-			createChatRoom: createChatRoom,
-			getMessages: getMessages
-		};
-	}
-
-	angular
-		.module('blocChat')
-		.factory('Room', ['$firebaseArray', Room]);
+    angular /* global angular */
+    .module('blocChat')
+    .factory('Room', ['$firebaseArray', Room]);
 })();
