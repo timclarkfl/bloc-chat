@@ -6,7 +6,8 @@
             var modalInstance = $uibModal.open({
                 templateUrl: '/templates/newroom.html',
                 controller: 'NewRoomCtrl',
-                controllerAs: 'newRoom'
+                controllerAs: 'newRoom',
+				backdrop: 'static'
             });
         };
 
